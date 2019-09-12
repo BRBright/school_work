@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trigger Clicked</title>
+
+  <!-- Added link to the jQuery library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+  <!-- Header with an id of click-me -->
+  <h3 id="click-me">CLICK ME!</h3>
+  <h3 id="counter"></h3>
+
+  <button id="sickButton">Dont Push Me</button>
+
+
+  <script type="text/javascript">
+
+    // This "document.ready" code isn't necessary in this example... but is useful to become familiar with.
+    // "document.ready" makes sure that our JavaScript doesn't get run until the HTML document is finished loading.
+    $(document).ready(function() {
+
+
+      $('#sickButton').on('click', function(){
+        $('body').css('background', 'red')
+      })
+      // Here we use jQuery to select the header with "click-me" as its ID.
+      // Notice I have the #click-me, click, and then the function
+      // So $("#id|.class|element").on("action", function(){});
+      // And so whenever it is clicked...
+
+      var counter = 0
+
+      function setCounter() {
+        $('#counter').html(counter+2)
+      }
+
+      $(document).on("keyup", setCounter);
+
+    });
+
+</script>
+
+</body>
+</html>
